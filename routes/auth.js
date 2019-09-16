@@ -12,16 +12,26 @@ router.get("/login", (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
 });
 
+
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
+});
+
+
+router.get("/signup", (req, res, next) => {
+  res.render("auth/signup");
+});
+
+
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/dashboard",
   failureRedirect: "/auth/login",
   failureFlash: true,
   passReqToCallback: true
 }));
 
-router.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
-});
+
 
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
@@ -55,9 +65,6 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
-router.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect("/");
-});
+
 
 module.exports = router;

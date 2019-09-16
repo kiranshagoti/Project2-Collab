@@ -1,0 +1,7 @@
+{{#unless user}}
+<h1>not working</h1>
+
+{{else}}
+<h1>{{user.username}} create your dashboard! </h1>
+<a href="/auth/logout">logout</a>
+{{/unless}}

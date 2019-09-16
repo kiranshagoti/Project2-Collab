@@ -14,6 +14,7 @@ const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
     
 
+
 mongoose
   .connect('mongodb://localhost/project2-collab', {useNewUrlParser: true})
   .then(x => {
@@ -81,5 +82,7 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
       
-
+const OauthRoutes = require("./routes/Oauth");
+app.use("/", OauthRoutes)
+  
 module.exports = app;
