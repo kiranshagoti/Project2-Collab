@@ -4,7 +4,7 @@ const Schema   = mongoose.Schema;
 const projectSchema = new Schema({
   name: String,
   description: String,
-  newTask: {
+  newTask: [{
     name: String,
     task: String,
     owner: {
@@ -33,7 +33,7 @@ const projectSchema = new Schema({
       type: String,
       enum: ["From Computer", "From Google Drive", "From Dropbox"]
     }
-}
+}]
 });
 
 const Projects = mongoose.model('Projects', projectSchema);

@@ -5,32 +5,27 @@
 <h1>{{user.username}} create your dashboard! </h1>
 <a href="/auth/logout">logout</a>
 
+<button class="createItem" onclick="createNewItem()">New item</button>
 
-{{!-- Div one for the section 1 --}}
-<div> 
+<script>
+function createNewItem() {
+    let createProduct = document.createElement('div');
+  createProduct.innerHTML = 
+    `
+  <form action="/dashboard/" method="post">
 
-<h1>Name of the Project</h1>
-<h3>Add the description</h3>
-
-{{!--Button for New Group Task--}}
-<button type="button" class="btn btn-primary">New Group Task</button>
-
-{{!-- Search button next to New Group Task --}}
-<form action="/dashboard" method="GET">
-  <input type="text" name="search">
-  <button type="submit" class="btn btn-danger" aria-placeholder="Search"></button>
+  <input placeholder="Add task name"></input>
 </form> 
+ `
 
-</div>
-{{!-- Div one closed for the section 1 --}}
+ ;
 
+    document.body.appendChild(createProduct);
+}
 
-
-{{!-- Div Container for the section 2 --}}
-<div>
-</div>
-{{!-- Div Container closed for the section 2 --}}
-
+  window.onload = function () {
+    var createItemButton = document.getElementById('createItem');
+  }
+</script>
 
 {{/unless}}
-
