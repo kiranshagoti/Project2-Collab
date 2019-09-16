@@ -4,8 +4,8 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
-  githubId: String,
-  slackId: String,
+  githubID: String,
+  slackID: String,
   unique: true,
   required: true,
   role: {
@@ -18,4 +18,3 @@ const userSchema = new Schema({
 const User = mongoose.model('User', userSchema);
 module.exports = User;
 
-console.log("HI I am Kiran")
