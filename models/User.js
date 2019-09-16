@@ -4,8 +4,15 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
-  slackID: String,
-  gitHubID: String
+  githubId: String,
+  slackId: String,
+  unique: true,
+  required: true,
+  role: {
+    type: String,
+    enum: ["admin", "user"],
+    default: "user"
+  }
 });
 
 const User = mongoose.model('User', userSchema);
