@@ -4,8 +4,8 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
-  githubId: String,
-  slackId: String,
+  githubID: String,
+  slackID: String,
   unique: true,
   required: true,
   role: {

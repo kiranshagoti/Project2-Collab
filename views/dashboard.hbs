@@ -4,4 +4,33 @@
 {{else}}
 <h1>{{user.username}} create your dashboard! </h1>
 <a href="/auth/logout">logout</a>
+
+
+{{!-- Div one for the section 1 --}}
+<div> 
+
+<h1>Name of the Project</h1>
+<h3>Add the description</h3>
+
+{{!--Button for New Group Task--}}
+<button type="button" class="btn btn-primary">New Group Task</button>
+
+{{!-- Search button next to New Group Task --}}
+<form action="/dashboard" method="GET">
+  <input type="text" name="search">
+  <button type="submit" class="btn btn-danger" aria-placeholder="Search"></button>
+</form> 
+
+</div>
+{{!-- Div one closed for the section 1 --}}
+
+
+
+{{!-- Div Container for the section 2 --}}
+<div>
+</div>
+{{!-- Div Container closed for the section 2 --}}
+
+
 {{/unless}}
+
