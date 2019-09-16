@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
-const projectSchema = new Schema({
+const boardSchema = new Schema({
   name: String,
   description: String,
-  newTask: [{
+  tasks: [{
     name: String,
     task: String,
     owner: {
@@ -36,5 +36,5 @@ const projectSchema = new Schema({
 }]
 });
 
-const Projects = mongoose.model('Projects', projectSchema);
-module.exports = Projects;
+const Board = mongoose.model('Board', boardSchema);
+module.exports = Board;

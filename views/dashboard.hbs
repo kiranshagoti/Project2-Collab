@@ -1,31 +1,32 @@
-{{#unless user}}
-<h1>not working</h1>
-
-{{else}}
-<h1>{{user.username}} create your dashboard! </h1>
 <a href="/auth/logout">logout</a>
 
-<button class="createItem" onclick="createNewItem()">New item</button>
+<h1>Welcome {{user.username}} !! 
+  Create a new Board!</h1>
 
-<script>
-function createNewItem() {
-    let createProduct = document.createElement('div');
-  createProduct.innerHTML = 
-    `
-  <form action="/dashboard/" method="post">
 
-  <input placeholder="Add task name"></input>
+<h2><input type="text" name="board-name" aria-placeholder="Board name">Board name</h2>
+
+<h2><input type="text" name="board-description" aria-placeholder="Add a board description">Add a board description</h2>
+
+
+
+
+<button type="button" class="btn btn-primary">New Group Task</button>
+
+<form action="/dashboard" method="GET">
+  <input type="text" name="search">
+  <button type="submit" class="btn btn-danger" aria-placeholder="Search"></button>
 </form> 
- `
 
- ;
+<form action="/dashboard/" method="POST">
+  <input placeholder="Add task" name="Add Task"></input>
+  <input placeholder="to do" name="toDo"></input>
+  <button>&times;</button>
+</form>
 
-    document.body.appendChild(createProduct);
-}
 
-  window.onload = function () {
-    var createItemButton = document.getElementById('createItem');
-  }
-</script>
-
-{{/unless}}
+<ol>
+  {{#each board}}
+  <li>{{this.name}}</li>
+  {{/each}}
+</ol>
