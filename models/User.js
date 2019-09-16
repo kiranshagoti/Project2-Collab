@@ -3,11 +3,15 @@ const Schema   = mongoose.Schema;
 
 const userSchema = new Schema({
   username: String,
-  password: String
-}, {
-  timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
+  password: String,
+  githubId: String,
+  slackId: String,
+  unique: true,
+  required: true,
+  role: {
+    type: String,
+    enum: ["admin", "user"],
+    default: "user"
   }
 });
 
