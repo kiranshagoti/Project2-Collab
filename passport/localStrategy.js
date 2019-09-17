@@ -30,8 +30,8 @@ passport.use(new LocalStrategy({
 ));
 
 passport.use(new SlackStrategy({
-  clientID: "2432150752.761335549712",
-  clientSecret: "bcb27df28ae3e64f36c4a11e356ba23f"
+  clientID: process.env.SLACK_CLIENT_ID,
+  clientSecret: process.env.SLACK_SECRET_ID
 }, (accessToken, refreshToken, profile, done) => {
   User.findOne({ slackID: profile.id })
   .then(user => {
@@ -56,8 +56,8 @@ passport.use(new SlackStrategy({
 
 
 passport.use(new GithubStrategy({
-  clientID: "aae8172be14bfdfb5d8c",
-  clientSecret: "4fdc2d86436c2f7ff687f7d9fd315b62fa232b73"
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_SECRET_ID
 }, (accessToken, refreshToken, profile, done) => {
   User.findOne({ gitHubID: profile.id })
   .then(user => {
