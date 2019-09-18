@@ -1,29 +1,50 @@
+<div class="container" id="login">
 
-<h2>Login</h2>
+  <div class="container border border-danger" id="border-login">
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+    <div class="mx-auto">
 
-  <br><br>
+      <h1 class="text-center">Login</h1>
+      <br>
+      <form action="/auth/login" method="POST" id="form-container">
+        <label for="username"></label>
+        <input id="username" type="text" name="username" placeholder="Username">
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+        <label for="password"></label>
+        <input id="password" type="password" name="password" placeholder="Your password">
 
-  <br><br>
 
-  <button type ="submit">Login</button>
 
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
+        {{#if message }}
+        <div class="error-message">{{ message }}</div>
+        {{/if}}
 
-<a href="/auth/slack">Login With Slack</a>
-<a href="/auth/github">Login With Github</a>
+        <a href="/auth/login"><button type="button" class="btn btn-danger">Login</button></a>
+    </div>
 
+    <br>
+
+    <p class="text-center">
+      Don't have an account yet?
+      <a href="/auth/signup"><button type="button" class="btn btn-danger">Signup</button></a>
+    </p>
+    </form>
+
+    <div class="row">
+
+      <div class="">
+      <img src="/images/slack_mark.png" alt="" width="40" height="40"/>
+      <a class="col md-1" href="/auth/slack"><button type="button" class="btn btn-light" id="slack">Slack</button></a>
+      </div>
+
+      <div>
+      <img src="/images/GitHub-Mark.png" alt="" width="40" height="40"/>
+      <a class="col md-1" href="/auth/github"><button type="button" class="btn btn-light" id="github">Github</button></a>
+      </div>
+
+    </div>
+    {{!-- <a href="/auth/slack">Login With Slack</a>
+  <a href="/auth/github">Login With Github</a> --}}
+  </div>
+
+</div>
