@@ -8,7 +8,7 @@ const boardSchema = new Schema({
     name: String,
     task: String,
     owner: {
-      type: String, //Schema.Types.ObjectId,
+      type: String, 
       default: "user"
     },
     status: {
