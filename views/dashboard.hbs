@@ -1,30 +1,97 @@
 <a href="/auth/logout">logout</a>
 
-<h1>Welcome {{user.username}} !! 
-  Create a new Board!</h1>
+<div class="createDash">
+  <button class="createItem" onclick="createNewItem()">New item</button>
+  <form id="taskForm" action="/dashboard" method="post" enctype="multipart/form-data"></form>
+</div>
+
+{{#each tasks}}
+<form id="taskForm" action="/dashboard/{{this._id}}" method="post" enctype="multipart/form-data">
+  <input type="text" placeholder="Add task name" name="name" value="{{this.name}}" />
+
+  <select name="responsible">
+    <option value="{{this.responsible}}" hidden="hidden" selected="selected">{{this.responsible}}</option>
+    {{#each ../names}}
+    <option>{{username}}</option>
+    {{/each}}
+  </select>
+
+  <select name="status">
+    <option value="{{this.status}}" hidden="hidden" selected="selected">{{this.status}}</option>
+    <option>Stuck</option>
+    <option>Working on it</option>
+    <option>Done</option>
+    <option>Waiting for review</option>
+  </select>
 
 
-<h2><input type="text" name="board-name" aria-placeholder="Board name">Board name</h2>
+  <input type="date" name="dueDate" value="{{this.dueDate}}" />
 
-<h2><input type="text" name="board-description" aria-placeholder="Add a board description">Add a board description</h2>
+  <select name="priority">
+    <option value="{{this.priority}}" hidden="hidden" selected="selected">{{this.priority}}</option>
+    <option>Urgent</option>
+    <option>High</option>
+    <option>Medium</option>
+    <option>Low</option>
+  </select>
 
 
-<button type="button" class="btn btn-primary">New Group Task</button>
 
-<form action="/dashboard" method="GET">
-  <input type="text" name="search">
-  <button type="submit" class="btn btn-danger" aria-placeholder="Search"></button>
-</form> 
+  <input type="text" placeholder="Add a comment" name="comment" value="{{this.comment}}" />
+  <span>uploadet file: <a href="">{{this.files.name}}</a></span>
 
-<form action="/dashboard/" method="POST">
-  <input placeholder="Add task" name="Add Task"></input>
-  <input placeholder="to do" name="toDo"></input>
-  <button>&times;</button>
+
+</form>
+<form action="/dashboard/delete/{{this._id}}" method="post">
+       <button type="submit">Delete</button>
 </form>
 
+{{/each}}
 
-<ol>
-  {{#each board}}
-  <li>{{this.name}}</li>
-  {{/each}}
-</ol>
+
+{{!-- <a href="/dashboard">Add task</a> --}}
+
+<script>
+  function createNewItem() {
+    document.querySelector('#taskForm').innerHTML +=
+      `
+      <input type="text" placeholder="Add task name" name="name"/>
+      
+      <select name="responsible">
+    <option></option>
+    {{#each names}}
+    <option>{{username}}</option>
+    {{/each}}
+  </select>
+
+  <select name="status">
+    <option></option>
+    <option>Stuck</option>
+    <option>Working on it</option>
+    <option>Done</option>
+    <option>Waiting for review</option>
+  </select>
+  
+  <input type="date" name="dueDate"/>
+
+ <select name="priority">
+    <option></option>
+    <option>Urgent</option>
+    <option>High</option>
+    <option>Medium</option>
+    <option>Low</option>
+  </select>
+
+  <input type="text" placeholder="Add a comment" name="comment"/>
+  <input type="file" name="files"/>
+      `
+    document.querySelectorAll(".formBtn").forEach(elem => elem.remove())
+    let createBtn = document.createElement('button');
+    createBtn.setAttribute("type", "submit")
+    createBtn.classList.add("formBtn")
+    createBtn.innerText = "Save"
+    let dashForm = document.querySelector("#taskForm")
+
+    dashForm.appendChild(createBtn)
+  }
+</script>

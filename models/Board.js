@@ -6,32 +6,25 @@ const boardSchema = new Schema({
   description: String,
   tasks: [{
     name: String,
-    task: String,
-    owner: {
+    responsible: {
       type: String, //Schema.Types.ObjectId,
-      default: "user"
     },
     status: {
       type: String,
-      enum: ["Stuck", "Working on it", "Done", "Waiting for review"],
     },
     dueDate: Date,
     priority: {
       type: String,
-      enum: ["Urgent", "High", "Medium", "Low"],
     },
     comment: String,
     people: {
       type: String,
       // default: 
     },
-    timeline: {
-      startDate: Date,
-      endDate: Date
-    },
     files: {
-      type: String,
-      enum: ["From Computer", "From Google Drive", "From Dropbox"]
+      name: String,
+      path: String,
+      contentType: Schema.Types.Mixed
     }
 }]
 });
