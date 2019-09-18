@@ -43,18 +43,73 @@
 
 </form>
 <form action="/dashboard/delete/{{this._id}}" method="post">
-       <button type="submit">Delete</button>
+  <button type="submit">Delete</button>
 </form>
+<!DOCTYPE html>
+<html lang="en">
 
-{{/each}}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Friday.com</title>
+</head>
+
+<body id="main">
+  <div class="container-fluid side bar">
+    <div class="row">
+      <div class="col-3">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active" id="list-home-list" href="/dashboard" role="tab"
+            aria-controls="home">Home</a>
+          <a class="list-group-item list-group-item-action" id="list-profile-list" href="/dashboard/profile" role="tab"
+            aria-controls="profile">Profile</a>
+          <a class="list-group-item list-group-item-action" id="list-settings-list" href="/dashboard/settings"
+            role="tab" aria-controls="settings">Settings</a>
+          <a class="list-group-item list-group-item-action" id="list-logout-list" href="/auth/logout" role="tab"
+            aria-controls="logout">Logout</a>
+        </div>
+      </div>
+
+      <div class="col-9">
+        <div class="container">
+          <div class="board-header-content-wrapper">
+            <h1>Welcome {{user.username}} !! Create a new Board!</h1>
+            <div class="editable-component" style="width:auto; height:auto;"></div>
+            <h3><input type="text" name="board-name" placeholder="Board name"></h3>
+            <h4><input type="text" name="board-description" placeholder="Add a board description"></h4>
+            <div><button type="button" class="btn btn-primary">New Group Task</button>
+              <form action="/dashboard" method="GET">
+                <input type="text" name="search">
+                <button type="submit" class="btn btn-danger" placeholder="Search"></button>
+              </form>
+            </div>
 
 
-{{!-- <a href="/dashboard">Add task</a> --}}
 
-<script>
-  function createNewItem() {
-    document.querySelector('#taskForm').innerHTML +=
-      `
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  {{!-- <form action="/dashboard/" method="POST">
+  <input placeholder="Add task" name="Add Task"></input>
+  <input placeholder="to do" name="toDo"></input>
+  <button>&times;</button>
+</form> --}}
+
+  {{/each}}
+
+
+  {{!-- <a href="/dashboard">Add task</a> --}}
+
+  <script>
+    function createNewItem() {
+      document.querySelector('#taskForm').innerHTML +=
+        `
       <input type="text" placeholder="Add task name" name="name"/>
       
       <select name="responsible">
@@ -85,13 +140,16 @@
   <input type="text" placeholder="Add a comment" name="comment"/>
   <input type="file" name="files"/>
       `
-    document.querySelectorAll(".formBtn").forEach(elem => elem.remove())
-    let createBtn = document.createElement('button');
-    createBtn.setAttribute("type", "submit")
-    createBtn.classList.add("formBtn")
-    createBtn.innerText = "Save"
-    let dashForm = document.querySelector("#taskForm")
+      document.querySelectorAll(".formBtn").forEach(elem => elem.remove())
+      let createBtn = document.createElement('button');
+      createBtn.setAttribute("type", "submit")
+      createBtn.classList.add("formBtn")
+      createBtn.innerText = "Save"
+      let dashForm = document.querySelector("#taskForm")
 
-    dashForm.appendChild(createBtn)
-  }
-</script>
+      dashForm.appendChild(createBtn)
+    }
+  </script>
+</body>
+
+</html>

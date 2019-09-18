@@ -1,0 +1,29 @@
+{{#with user}}
+<h2>{{username}}</h2>
+<form action="/dashboard/profile" method="post">
+
+<h1>Personal Information</h1>
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title" value="{{title}}">
+
+    <label for="email">Email: </label>
+    <input type="text" name="email" id="email" value="{{email}}">
+
+    <label for="phone">Phone: </label>
+    <input type="number" name="number" id="number" value="{{number}}">
+
+    <label for="skype">Skype: </label>
+    <input type="text" name="skype" id="skype" value="{{skype}}">
+    
+    <label for="location">Location: </label>
+    <input type="text" name="location" id="location" value="{{location}}">
+
+    <label for="birthday">Birthday: </label>
+    <input type="date" name="birthday" id="birthday" value="{{birthday}}">
+
+    <button type="submit">Edit my profile</button>
+</form>
+{{/with}}
+
+
+<button><a href="/dashboard">Go back to Homepage</a></button>
