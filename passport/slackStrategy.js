@@ -9,12 +9,12 @@ passport.use(new SlackStrategy({
   callbackURL: "http://localhost:3000/auth/slack/callback",
   scope: ['identity.basic', 'identity.email', 'identity.avatar', 'identity.team']
 }, (accessToken, refreshToken, profile, done) => {
-  User.findOne({ slackId: profile.id })
+  User.findOne({ slackID: profile.id })
   .then(foundUser => {
     if (foundUser !== null) {
       done(null, foundUser);
     } else {
-      return User.create({ slackId: profile.id}).then(User=> {
+      return User.create({ slackID: profile.id}).then(User=> {
         done(null, User);
       });
     }

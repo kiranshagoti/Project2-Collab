@@ -1,29 +1,37 @@
+<div class="container" id="login">
+  <div class="container border border-danger" id="border-login">
+    <div class="text-center">
 
-<h2>Login</h2>
+      <h2 class="text-center">Login</h2>
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+      <form action="/auth/login" method="POST" id="form-container">
+        {{!-- <label for="username">Username</label> --}}
+        <input id="username" type="text" name="username" placeholder="JonSnow">
 
-  <br><br>
+        <br><br>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+        {{!-- <label for="password">Password</label> --}}
+        <input id="password" type="password" name="password" placeholder="Your password">
+        <br>
+        {{#if message }}
+        <div class="error-message">{{ message }}</div>
+        {{/if}}
 
-  <br><br>
+        <br><br>
 
-  <button type ="submit">Login</button>
+        <button type="submit" class="btn btn-danger" id="loginBtn">Login</button>
+    </div>
 
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
+    <p class="account-message">
+      Don't have an account yet?
+      <a href="/auth/signup" class="btn btn-danger">Signup</a>
+    </p>
+    </form>
+    ​
+      <div>
+        <img src="/images/slack_mark.png" alt="" width="40" height="40" />
+  <a href="/auth/slack" class="col md-1">Login With Slack</a>
 
-<a href="/auth/slack">Login With Slack</a>
-<a href="/auth/github">Login With Github</a>
-
+  
+  <a href="/auth/github">Login With Github</a>
+  </div>

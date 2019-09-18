@@ -12,12 +12,12 @@ clientSecret: process.env.GITHUB_SECRET_ID,
   // clientSecret: "8939b9ff7c743d1d764d893f97c68666826a3b99",
   callbackURL: "http://localhost:3000/auth/github/callback"
 }, (accessToken, refreshToken, profile, done) => {
-  User.findOne({ githubId: profile.id })
+  User.findOne({ githubID: profile.id })
   .then(foundUser => {
     if (foundUser !== null) {
       done(null, foundUser);
     } else {
-      return User.create({ githubId: profile.id}).then(User=> {
+      return User.create({ githubID: profile.id}).then(User=> {
         done(null, User);
       });
     }
