@@ -3,35 +3,36 @@
   <div class="container border border-danger" id="border-signup">
 
 
-<div class="text-center">
+    <div class="text-center">
 
-<h2 class="text-center">Signup</h2>
+      <h2 class="text-center">Signup</h2>
 
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="username"></label>
-  <input id="username" type="text" name="username" placeholder="Username">
+      <form action="/auth/signup" method="POST" id="form-container">
+        
+        <input id="username" type="text" name="username" placeholder="Username">
 
-  <br>
-  <br>
+        <br>
+        <br>
 
-  <label for="password"></label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+        
+        <input id="password" type="password" name="password" placeholder="Your password">
+        <br>
+        {{#if message }}
+        <div class="error-message">{{ message }}</div>
+        {{/if}}
 
-  <br>
-  <button type="button" class="btn btn-light">Create account</button>
+        <br>
+        <button type="button" class="btn btn-light">Create account</button>
+    </div>
+
+    <br>
+    <div class="sIaM">
+
+      <p class="account-message">
+        Do you already have an account?
+        <a href="/auth/login"><button type="button" class="btn btn-danger">Login</button></a>
+      </p>
+    </div>
+    </form>
+  </div>
 </div>
-
-<br>
-
-  <p class="account-message">
-    Do you already have an account?
-     <a href="/auth/login"><button type="button" class="btn btn-danger">Login</button></a>
-  </p>
-</form>
-</div>
-</div>
-

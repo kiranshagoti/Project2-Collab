@@ -9,7 +9,8 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  font-size: 1rem; }
 
 .text {
   font-size: 17pt; }
@@ -47,6 +48,19 @@ h3 {
 #border-login {
   padding: 50px; }
 
+.auth-form {
+  display: flex;
+  flex-direction: column; }
+
+.auth-form input {
+  margin: 10px auto;
+  width: 300px;
+  text-align: center; }
+
+.auth-form button {
+  width: 300px;
+  margin: 10px auto; }
+
 form input {
   border-color: red; }
 
@@ -61,5 +75,43 @@ form input {
   display: flex;
   height: 100%;
   font-size: 17pt; }
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem; }
+  body {
+    font-size: 1rem; }
+  .text {
+    font-size: 0.8rem; }
+  html {
+    font-size: 17px; }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .login {
+    display: flex;
+    flex-direction: column;
+    align-items: column; }
+  .text-center {
+    display: flex;
+    flex-direction: column; }
+  #loginBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  #socialLog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center; }
+  .account-messsage {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .sIaM {
+    display: flex;
+    text-align: center; } }
 
 /*# sourceMappingURL=style.css.map */
