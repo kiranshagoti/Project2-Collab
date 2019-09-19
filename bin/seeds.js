@@ -6,6 +6,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
+const Board = require("../models/Board");
 
 const bcryptSalt = 10;
 
@@ -36,8 +37,10 @@ User.deleteMany()
 .then(usersCreated => {
   console.log(`${usersCreated.length} users created with the following id:`);
   console.log(usersCreated.map(u => u._id));
+  return Board.create({ name: 'THE board', tasks: []})
 })
-.then(() => {
+.then((board) => {
+  console.log('created the one board')
   // Close properly the connection to Mongoose
   mongoose.disconnect()
 })
