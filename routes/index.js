@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Board = require('../models/Board');
 const User = require('../models/User');
-const Deleted = require('../models/Deleted');
 
 const multer = require('multer');
 const upload = multer({ dest: './public/uploads/' });
@@ -51,6 +50,9 @@ router.get('/dashboard', loginCheck(), (req, res, next) => {
                 console.log(tasks)
 
                 res.render('dashboard', { names: data, tasks: tasks , user: loggedUser });
+                // const tasks = null
+                // if(board ) tasks = board.tasks
+                // res.render('dashboard', { names: data, tasks: tasks });
             });
         })
 
