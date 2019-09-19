@@ -4,7 +4,8 @@ const Schema   = mongoose.Schema;
 const boardSchema = new Schema({
   name: String,
   description: String,
-  tasks: [{
+  tasks: [
+    {
     name: String,
     responsible: {
       type: String, //Schema.Types.ObjectId,
@@ -21,8 +22,7 @@ const boardSchema = new Schema({
       name: String,
       path: String,
       contentType: Schema.Types.Mixed
-    }
-}]
+    }}]
 });
 
 const Board = mongoose.model('Board', boardSchema);
