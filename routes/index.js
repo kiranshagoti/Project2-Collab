@@ -33,7 +33,9 @@ router.get('/dashboard', loginCheck(), (req, res, next) => {
                 //   return user.username
                 // })
                 // console.log(nameList);
-                res.render('dashboard', { names: data, tasks: board.tasks });
+                const tasks = null
+                if(board ) tasks = board.tasks
+                res.render('dashboard', { names: data, tasks: tasks });
             });
         })
 

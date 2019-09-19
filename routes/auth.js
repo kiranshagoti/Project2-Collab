@@ -34,6 +34,7 @@ router.post("/login", passport.authenticate("local", {
 
 
 router.post("/signup", (req, res, next) => {
+  console.log('SIGNUP POST')
   const username = req.body.username;
   const password = req.body.password;
   if (username === "" || password === "") {
