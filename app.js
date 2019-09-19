@@ -13,8 +13,10 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 
+
+
 mongoose
-    .connect('mongodb://localhost/project2-collab', { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/project2-collab", { useNewUrlParser: true })
     .then(x => {
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
     })
