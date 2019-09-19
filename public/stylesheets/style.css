@@ -114,4 +114,9 @@ form input {
     display: flex;
     text-align: center; } }
 
+.error-message {
+  background-color: red;
+  padding: 10px;
+  color: white; }
+
 /*# sourceMappingURL=style.css.map */
