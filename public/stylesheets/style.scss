@@ -1,5 +1,11 @@
-
+html, body {
+  height: 100%;
+}
+#homepage{
+  height: 100%; 
+}
 #bodyTag {
+// body {
   background-image: url(/images/background.jpg);
   backdrop-filter: blur(2px); 
   background-size: cover;
@@ -12,7 +18,7 @@
   color: antiquewhite;
 
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -25,11 +31,21 @@
 .text {
   font-size: 17pt;
 }
-
+// #carouBox{
+//   display: block
+// }
 #carouselCss {
   display: flex;
   justify-content: center;
   align-items: center; 
+}
+.carousel-item{
+  height: auto;
+}
+#carouselExampleSlidesOnly{
+  // background-color: red;
+  // margin-bottom: 50px
+  // height: 200px;
 }
 
 .logo {
@@ -176,3 +192,4 @@ input{
   //   // width: 14px; 
   // }
 }
+
