@@ -122,8 +122,8 @@ form input {
     display: flex; 
     // justify-content: space-around; 
     flex-direction: column;
-​
   }
+
   #loginBtn {
     display: flex;
     justify-content: center;
@@ -135,7 +135,6 @@ form input {
     justify-content: center;
     align-items: center;
     align-self: center;
-​
   }
   .account-messsage{
     display: flex; 
@@ -157,10 +156,22 @@ form input {
   //   justify-content: center; 
   //   // width: 14px; 
   // }
-}
+//}
 ​
 .error-message{
   background-color: red;
   padding:10px;
   color:white;
+}
+
+// .colProfile{
+//   display: flex;
+//   flex-direction: column;
+// }
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  
 }
