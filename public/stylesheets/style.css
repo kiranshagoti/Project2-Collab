@@ -1,9 +1,10 @@
+@charset "UTF-8";
 body {
-  background-image: url(/images/background.jpg);
+  background-image: url("/images/LogoF3.png");
   backdrop-filter: blur(2px);
   background-size: cover;
   padding: 50px;
-  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
   color: antiquewhite;
   width: 100vw;
   height: 100vh;
@@ -12,14 +13,17 @@ body {
   align-items: center;
   font-size: 1rem; }
 
+​
 .text {
   font-size: 17pt; }
 
+​
 #carouselCss {
   display: flex;
   justify-content: center;
   align-items: center; }
 
+​
 .logo {
   display: flex;
   flex-direction: row;
@@ -27,24 +31,28 @@ body {
   align-items: center;
   flex-wrap: nowrap; }
 
+​
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; }
 
+​
 .workingAround {
   margin-right: 20px; }
 
 h3 {
   color: red; }
 
+​
 #login {
   justify-self: center;
   display: flex;
   height: 100%;
   font-size: 17pt; }
 
+​
 #border-login {
   padding: 50px; }
 
@@ -61,62 +69,23 @@ h3 {
   width: 300px;
   margin: 10px auto; }
 
+​
 form input {
   border-color: red; }
 
+​
 #slack {
   flex-wrap: nowrap; }
 
+​
 #border-signup {
   padding: 40px; }
 
+​
 #signup {
   justify-self: center;
   display: flex;
   height: 100%;
   font-size: 17pt; }
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2rem; }
-  body {
-    font-size: 1rem; }
-  .text {
-    font-size: 0.8rem; }
-  html {
-    font-size: 17px; }
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-  .login {
-    display: flex;
-    flex-direction: column;
-    align-items: column; }
-  .text-center {
-    display: flex;
-    flex-direction: column; }
-  #loginBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-  #socialLog {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-self: center; }
-  .account-messsage {
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-  .sIaM {
-    display: flex;
-    text-align: center; } }
-
-.error-message {
-  background-color: red;
-  padding: 10px;
-  color: white; }
 
 /*# sourceMappingURL=style.css.map */

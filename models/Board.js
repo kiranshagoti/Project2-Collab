@@ -8,12 +8,7 @@ const boardSchema = new Schema({
     {
     name: String,
     responsible: {
-      type: Schema.Types.ObjectId,
-      ref: 'User'},
-    task: String,
-    owner: {
-      type: String, 
-      default: "user"
+      type: String, //Schema.Types.ObjectId,
     },
     status: {
       type: String,
@@ -23,10 +18,6 @@ const boardSchema = new Schema({
       type: String,
     },
     comment: String,
-    people: {
-      type: String,
-      // default: 
-    },
     files: {
       name: String,
       path: String,

@@ -19,23 +19,6 @@ const userSchema = new Schema({
         enum: ['admin', 'user'],
         default: 'user'
     },
-  username: {
-    type: String,
-    // unique: true,
-    // required: true
-  },
-  password: {
-    type: String,
-    // unique: true,
-    // required: true
-  },
-  githubId: String,
-  slackId: String,
-  role: {
-    type: String,
-    enum: ["admin", "user"],
-    default: "user"
-  },
   title: String,
   email: String,
   phone: Number,
