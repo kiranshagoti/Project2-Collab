@@ -21,6 +21,10 @@ const boardSchema = new Schema({
       name: String,
       path: String,
       contentType: Schema.Types.Mixed
+    },
+    deleted: {
+      type: Boolean,
+      default: false,
     }
 }]
 });

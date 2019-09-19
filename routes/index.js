@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Board = require('../models/Board');
 const User = require('../models/User');
+const Deleted = require('../models/Deleted');
+
 const multer = require('multer');
 const upload = multer({ dest: './public/uploads/' });
 
@@ -29,11 +31,26 @@ router.get('/dashboard', loginCheck(), (req, res, next) => {
     Board.findOne()
         .then(board => {
             User.find().then(data => {
+                const loggedUser = req.user;
                 // const nameList = data.map(user => {
                 //   return user.username
                 // })
                 // console.log(nameList);
-                res.render('dashboard', { names: data, tasks: board.tasks });
+
+                let tasks = board.tasks.filter(t => !t.deleted)
+
+                tasks = tasks.map(a => {
+                    let t = JSON.parse(JSON.stringify(a))
+                    console.log(t.dueDate)
+                    let newDateFormat = new Date(t.dueDate).toISOString().split('T')[0];
+                    console.log(newDateFormat);
+                    t.dueDate = newDateFormat;
+                    return t;
+                })
+                console.log("here")
+                console.log(tasks)
+
+                res.render('dashboard', { names: data, tasks: tasks , user: loggedUser });
             });
         })
 
@@ -64,24 +81,6 @@ router.post('/dashboard', loginCheck(), upload.single('files'), (req, res, next)
             });
         })
         .catch(err => console.log(err))
-        // Board.create(
-        //   {
-        //     tasks: [
-        //       {
-        //         name,
-        //         responsible,
-        //         status,
-        //         dueDate,
-        //         priority,
-        //         comment,
-        //         files: {
-        //           name: req.file.originalname,
-        //           path: `uploads/${req.file.filename}`,
-        //           contentType: req.file.mimetype
-        //         }
-        //       }
-        //     ]
-        //   })
         .then(newTask => {
             console.log('++++++++', newTask);
             res.redirect('/dashboard');
@@ -89,13 +88,20 @@ router.post('/dashboard', loginCheck(), upload.single('files'), (req, res, next)
 });
 
 router.post('/dashboard/delete/:taskID', (req, res, next) => {
+    // const { name, responsible, status, dueDate, priority, comment, files } = req.body;
+
     const taskID = req.params.taskID;
-    console.log('++++++++++++++', taskID);
-    Board.find().then(board => {
-        console.log(board);
-        Board.findByIdAndUpdate(board[0]._id, { $pull: { tasks: { _id: taskID } } }).then(data => {
+
+    Board.findOne().then(board => {
+        console.log(board.tasks)
+        let task = board.tasks.find(t => t._id.equals(taskID));
+        task.deleted = true;
+        board.save().then(() => {
             res.redirect('/dashboard');
         });
+        // Board.findByIdAndUpdate(board[0]._id, { $pull: { tasks: { _id: taskID } } }).then(data => {
+        //     res.redirect('/dashboard');
+        // });
     });
 });
 
