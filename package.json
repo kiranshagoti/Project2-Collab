@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+      "start": "node ./bin/www",
+      "start-dev": "nodemon ./bin/www",
+    
     "dev": "DEBUG=project2-collab:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
   },
