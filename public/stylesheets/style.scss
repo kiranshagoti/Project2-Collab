@@ -4,6 +4,9 @@ html, body {
 #homepage{
   height: 100%; 
 }
+// .d-flex{
+//   align-self: flex-start;
+// }
 #bodyTag {
 // body {
   background-image: url(/images/background.jpg);
@@ -95,6 +98,16 @@ h3 {
   width: 300px;
   margin:10px auto;
 }
+.rowForm{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.colForm{
+  margin:5px;
+}
+
 
 form input {
   border-color: red;
