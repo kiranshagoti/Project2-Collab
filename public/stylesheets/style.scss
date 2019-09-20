@@ -1,4 +1,14 @@
-body {
+html, body {
+  height: 100%;
+}
+#homepage{
+  height: 100%; 
+}
+// .d-flex{
+//   align-self: flex-start;
+// }
+#bodyTag {
+// body {
   background-image: url(/images/background.jpg);
   backdrop-filter: blur(2px); 
   background-size: cover;
@@ -7,11 +17,11 @@ body {
 
   padding: 50px;
   
-  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
   color: antiquewhite;
 
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -24,11 +34,21 @@ body {
 .text {
   font-size: 17pt;
 }
-
+// #carouBox{
+//   display: block
+// }
 #carouselCss {
   display: flex;
   justify-content: center;
   align-items: center; 
+}
+.carousel-item{
+  height: auto;
+}
+#carouselExampleSlidesOnly{
+  // background-color: red;
+  // margin-bottom: 50px
+  // height: 200px;
 }
 
 .logo {
@@ -78,6 +98,16 @@ h3 {
   width: 300px;
   margin:10px auto;
 }
+.rowForm{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.colForm{
+  margin:5px;
+}
+
 
 form input {
   border-color: red;
@@ -175,3 +205,4 @@ input{
   //   // width: 14px; 
   // }
 }
+
